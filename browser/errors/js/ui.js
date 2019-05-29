@@ -1,6 +1,6 @@
-'use strict';
 function handleClick() {
-  openMail();
+  window.openMail();
 }
+
 const button = document.getElementById('open');
 button.onclick = handleClick;

@@ -6,6 +6,6 @@ const toggleClassActive = () => wrapperDropdown.classList.toggle('active');
 
 wrapperDropdown.addEventListener('click', toggleClassActive);
 
-for(li of listItemCollection) {
-    li.addEventListener('click', toggleClassActive);
-}
+listItemCollection.forEach((li) => {
+  li.addEventListener('click', toggleClassActive);
+});
