@@ -22,4 +22,8 @@ const changeImg = (arr) => {
   arr.shift();
 };
 
-setInterval(changeImg, 5000, imgs.slice());
+document.addEventListener(
+  "DOMContentLoaded", 
+  changeImg(imgs), 
+  setInterval(changeImg, 5000, imgs)
+);
