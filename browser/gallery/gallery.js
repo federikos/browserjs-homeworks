@@ -10,7 +10,7 @@ const imgs = [
   'i/IAC.jpg',
   'i/new-museum.jpg',
 ];
-let i = -1;
+let i = 0;
 const lastI = imgs.length - 1;
 
 const changeImgAttributes = (index) => {
@@ -24,7 +24,7 @@ const changeImgAttributes = (index) => {
 };
 
 const prevBtnClickHandler = () => {
-  if (i <= 0) {
+  if (i === 0) {
     i = lastI;
   } else {
     i--;
@@ -33,7 +33,7 @@ const prevBtnClickHandler = () => {
 };
 
 const nextBtnClickHandler = () => {
-  if (i === -1 || i === lastI) {
+  if (i === lastI) {
     i = 0;
   } else {
     i++;
@@ -43,3 +43,5 @@ const nextBtnClickHandler = () => {
 
 prevBtn.addEventListener('click', prevBtnClickHandler);
 nextBtn.addEventListener('click', nextBtnClickHandler);
+
+document.addEventListener("DOMContentLoaded", changeImgAttributes(0));
