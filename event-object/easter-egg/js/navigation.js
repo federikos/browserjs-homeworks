@@ -4,11 +4,9 @@ const nav = document.querySelector('nav');
 const secret = document.querySelector('.secret');
 
 document.addEventListener('keydown', (event) => {
-    if (!(event.altKey && event.ctrlKey)) {
-        return;
-    }
-
-    if (event.code === 'KeyT') {
+    if (event.altKey && 
+        event.ctrlKey &&
+        (event.code === 'KeyT')) {
         nav.classList.toggle('visible');
     }
 });
