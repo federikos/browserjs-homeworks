@@ -11,75 +11,19 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-let userWord = 0;
+let secretWord = ['KeyY', 'KeyT', 'KeyN', 'KeyJ', 'KeyK', 'KeyJ', 'KeyU', 'KeyB', 'KeyZ'];
+let i = 0;
 
 document.addEventListener('keydown', (event) => {
     
-    switch (event.code) {
-        case 'KeyY':
-            if (userWord !== 0) {
-                return;
-            }
-            userWord++;
-            break;
+    if(event.code !== secretWord[i]) {
+        i = (event.code === secretWord[0]) ? 1 : 0;
+        return;
+    }
 
-        case 'KeyT':
-            if (userWord !== 1) {
-                userWord = 0;
-                return;
-            }
-            userWord++;
-            break;
+    i++;
 
-        case 'KeyN':
-            if (userWord !== 2) {
-                userWord = 0;
-                return;
-            }
-            userWord++;
-            break;
-
-        case 'KeyJ':
-            if ((userWord !== 3) && (userWord !== 5)) {
-                userWord = 0;
-                return;
-            }
-            userWord++;
-            break;
-
-        case 'KeyK':
-            if (userWord !== 4) {
-                userWord = 0;
-                return;
-            }
-            userWord++;
-            break;
-
-        case 'KeyU':
-            if (userWord !== 6) {
-                userWord = 0;
-                return;
-            }
-            userWord++;
-            break;
-
-        case 'KeyB':
-            if (userWord !== 7) {
-                userWord = 0;
-                return;
-            }
-            userWord++;
-            break;
-
-        case 'KeyZ':
-            if (userWord !== 8) {
-                userWord = 0;
-                return;
-            }
-            secret.classList.add('visible');
-            break;
-            
-        default:
-            return;
+    if (i === 9) {
+        secret.classList.add('visible');
     }
 });
