@@ -20,21 +20,20 @@ function getTabContent(tab) {
 
     xhr.open(
         "GET",
-        tab.getAttribute('href'),
-        true
+        tab.getAttribute('href')
     );
 
     xhr.send();
 };
 
+getTabContent(emailTab);
+
 for (const tab of tabs) {
-    if (tab.classList.contains('active')) {
-        getTabContent(tab);
-    }
 
     tab.addEventListener('click', (event) => {
         event.preventDefault();
         tab.classList.add('active');
+        
         switch (event.target.href) {
             case emailTab.href:
                 smsTab.classList.remove('active');
@@ -43,6 +42,7 @@ for (const tab of tabs) {
                 emailTab.classList.remove('active');
                 break;
         }
+
         getTabContent(tab);
     });
 }
