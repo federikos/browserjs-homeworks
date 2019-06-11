@@ -5,8 +5,8 @@ const output = listBlock.querySelector('output');
 
 function countCompleted(checkboxes) {
     let i = 0;
-    for(checkbox of checkboxes) {
-        if(checkbox.checked === true) {
+    for (checkbox of checkboxes) {
+        if (checkbox.checked === true) {
             i++;
         }
     }
@@ -15,7 +15,7 @@ function countCompleted(checkboxes) {
 
 function toggleCompleteStatus() {
     listBlock.classList.remove('complete');
-    if(countCompleted(inputs) === quantity) {
+    if (countCompleted(inputs) === quantity) {
         listBlock.classList.add('complete');
     }
 };
@@ -27,7 +27,7 @@ function init() {
     toggleCompleteStatus();
 };
 
-for(input of inputs) {
+for (input of inputs) {
     input.addEventListener('change', () => {
         output.value = getOutputString(countCompleted(inputs));
     });
@@ -35,4 +35,3 @@ for(input of inputs) {
 };
 
 init();
-
