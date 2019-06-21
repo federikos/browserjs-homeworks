@@ -3,6 +3,12 @@ const loader = document.getElementById('loader');
 const content = document.getElementById('content');
 const selects = document.querySelectorAll('select');
 
+function showLoader() {
+    loader.classList.remove('hidden');
+};
+
+showLoader();
+
 xhr.open(
     "GET",
     "https://neto-api.herokuapp.com/currency"
@@ -17,20 +23,16 @@ function loadCurrencies() {
             const option = document.createElement('option');
             option.label = cur.code;
             option.value = cur.value;
+            option.innerText = cur.code;
             select.appendChild(option);
         }
     });
 };
 
-function showLoader() {
-    loader.classList.remove('hidden');
+function removeLoader() {
+    loader.classList.add('hidden');
+    content.classList.remove('hidden');
 };
 
-function toggleLoader() {
-    loader.classList.toggle('hidden');
-    content.classList.toggle('hidden');
-};
-
-document.addEventListener('DOMContentLoaded', showLoader);
 xhr.addEventListener('load', loadCurrencies);
-xhr.addEventListener('load', toggleLoader);
+xhr.addEventListener('load', removeLoader);
