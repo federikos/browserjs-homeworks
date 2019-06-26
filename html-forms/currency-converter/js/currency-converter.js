@@ -1,38 +1,40 @@
-const xhr = new XMLHttpRequest();
-const loader = document.getElementById('loader');
-const content = document.getElementById('content');
-const selects = document.querySelectorAll('select');
+document.addEventListener('DOMContentLoaded', () => {
+    const xhr = new XMLHttpRequest();
+    const loader = document.getElementById('loader');
+    const content = document.getElementById('content');
+    const selects = document.querySelectorAll('select');
 
-function showLoader() {
-    loader.classList.remove('hidden');
-};
+    function showLoader() {
+        loader.classList.remove('hidden');
+    };
 
-showLoader();
+    showLoader();
 
-xhr.open(
-    "GET",
-    "https://neto-api.herokuapp.com/currency"
-);
+    xhr.open(
+        "GET",
+        "https://neto-api.herokuapp.com/currency"
+    );
 
-xhr.send();
+    xhr.send();
 
-function loadCurrencies() {
-    const currencies = JSON.parse(xhr.responseText);
-    currencies.map((cur, i) => {
-        for (select of selects) {
-            const option = document.createElement('option');
-            option.label = cur.code;
-            option.value = cur.value;
-            option.innerText = cur.code;
-            select.appendChild(option);
-        }
-    });
-};
+    function loadCurrencies() {
+        const currencies = JSON.parse(xhr.responseText);
+        currencies.map((cur, i) => {
+            for (select of selects) {
+                const option = document.createElement('option');
+                option.label = cur.code;
+                option.value = cur.value;
+                option.innerText = cur.code;
+                select.appendChild(option);
+            }
+        });
+    };
 
-function removeLoader() {
-    loader.classList.add('hidden');
-    content.classList.remove('hidden');
-};
+    function removeLoader() {
+        loader.classList.add('hidden');
+        content.classList.remove('hidden');
+    };
 
-xhr.addEventListener('load', loadCurrencies);
-xhr.addEventListener('load', removeLoader);
+    xhr.addEventListener('load', loadCurrencies);
+    xhr.addEventListener('load', removeLoader);
+});
