@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     connect.send(msgInput.value);
     const currentMsgPersonal = msgPersonal.cloneNode(true);
     currentMsgPersonal.firstElementChild.innerText = msgInput.value;
+    msgInput.value = '';
     const timestamp = currentMsgPersonal.querySelector('.timestamp');
     timestamp.innerText = getMsgTime();
     msgsContent.appendChild(currentMsgPersonal);
