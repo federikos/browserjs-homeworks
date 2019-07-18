@@ -136,6 +136,7 @@ function handleBookingChange(e) {
 btnSeatMap.addEventListener('click', e => {
   e.preventDefault();
   applyScheme(acSelect.value);
+  [totalPax, totalAdult, totalHalf].forEach(counter => counter.textContent = 0);
 });
 
 btnSetFull.addEventListener('click', e => {
