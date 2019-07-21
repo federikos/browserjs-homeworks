@@ -1,3 +1,5 @@
+'use strict';
+
 //function to get coords of center of eye
 function getCoords(el) {
   const bounds = el.getBoundingClientRect();
