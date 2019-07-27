@@ -43,7 +43,7 @@ function createRow(n, rowLetters) {
     );
   }
 
-  for (let i = 3; i <= rowLetters.length; i++) {
+  for (let i = 3; i <= rowLetters.length - 1; i++) {
     const seatClass = rowLetters[i] ? 'seat' : 'no-seat';
     const seatLabelText = rowLetters[i] || '';
     secondLetterGroup.push(
